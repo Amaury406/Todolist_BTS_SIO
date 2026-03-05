@@ -3,6 +3,7 @@ import { TodoItem } from "./TodoItem";
 type TodoListProps = {
   todos: Array<string>;
   onTodoRemove: (todoIndex: number) => void;
+  onTodoEdit: (todoindex: number, newText: string) => void;
 };
 
 export const TodoList = (props: TodoListProps) => {
@@ -25,6 +26,7 @@ export const TodoList = (props: TodoListProps) => {
               isOdd={i % 2 === 0}
               todo={todo}
               onTodoRemove={() => boutonSupprimer(i)}
+              onTodoEdit={(newText) => props.onTodoEdit(i, newText)}
             />
           );
         })}
